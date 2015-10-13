@@ -29,7 +29,7 @@ test:
 
 deployment:
   gcr:
-    branch: gcr-example
+    branch: pv/tescircle
     commands:
       - docker build -t $GCR_HOST/$IMAGE:$TAG  .
       - gcloud docker push $GCR_HOST/$IMAGE:$TAG
