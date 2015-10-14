@@ -33,7 +33,7 @@ deployment:
   gcr:
     branch: pv/tescircle
     commands:
-      - docker build -t $GCR_HOST/$IMAGE:$TAG  .
+      - docker build -t $GCR_HOST/$IMAGE:$CIRCLE_SHA1  .
       # according to https://github.com/circleci/docker-hello-google/blob/master/circle.yml we would need to login here, but we are actually using GCE, and we already logged in on line 25
       - ./deploy.sh
 
