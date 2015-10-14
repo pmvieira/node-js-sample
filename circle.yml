@@ -19,6 +19,7 @@ dependencies:
     - echo "source '/home/ubuntu/google-cloud-sdk/path.bash.inc'" >> /home/ubuntu/.circlerc
     - gcloud components update
     - gcloud components update kubectl
+    - rm -f ~/.kube/config
 
 test:
   pre:
