@@ -17,6 +17,8 @@ dependencies:
   override:
     - curl https://sdk.cloud.google.com | bash
     - echo "source '/home/ubuntu/google-cloud-sdk/path.bash.inc'" >> /home/ubuntu/.circlerc
+    - gcloud components update
+    - gcloud components update kubectl
 
 test:
   pre:
