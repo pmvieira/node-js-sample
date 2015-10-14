@@ -10,7 +10,7 @@ set -e
 gcloud docker push $GCR_HOST/$IMAGE:$TAG
 
 # Update Kubernetes replicationController
-envsubst < kubernetes/app-controller.json.template > app-controller.json
+envsubst < gke/app-controller.json.template > app-controller.json
 #$KUBE_CMD -c app-controller.json \
 #    update replicationControllers/app-controller
 kubectl replace -f app-controller.json
