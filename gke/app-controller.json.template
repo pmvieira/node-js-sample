@@ -1,0 +1,38 @@
+{
+  "kind": "ReplicationController",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "${IMAGE}:${TAG}"
+  },
+  "spec": {
+    "replicas": 2,
+    "selector": {
+      "name":"${image}",
+      "track":"master",
+      "version":"${tag}"
+
+    },
+    "template": {
+      "metadata": {
+        "labels": {
+          "name":"${image}",
+          "track":"master",
+          "version":"${tag}"
+        }
+      },
+      "spec": {
+        "containers":[
+          {
+            "name":"testcircleapp",
+            "image":"${$GCR_HOST}/${IMAGE}:${TAG}",
+            "ports":[
+              {
+                "containerport":5000
+              }
+            ]
+          }
+        ]
+      }
+    }
+  }
+}
