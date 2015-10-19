@@ -9,6 +9,11 @@ set -e
 # Deploy image to private GCS-backed registry
 gcloud docker push $GCR_HOST/$IMAGE:$CIRCLE_SHA1
 
+# Configure kubectl
+gcloud config set compute/zone europe-west1-d
+gcloud config set project quill-software
+gcloud container clusters get-credentials $IMAGE
+
 echo "debug1"
 
 rc=$(kubectl get rc | grep $IMAGE | awk {'print $1'})
