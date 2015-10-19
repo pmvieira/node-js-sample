@@ -12,7 +12,7 @@ gcloud docker push $GCR_HOST/$IMAGE:$CIRCLE_SHA1
 # Configure kubectl
 gcloud config set compute/zone europe-west1-d
 gcloud config set project quill-software
-gcloud container clusters get-credentials $IMAGE
+gcloud container clusters get-credentials testcircleapp
 
 echo "debug1"
 
